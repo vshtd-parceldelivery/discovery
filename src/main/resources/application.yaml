@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: discovery
+
+server:
+  port: 8761
+management:
+  endpoint:
+    restart:
+      enabled: false
+
+eureka:
+  instance:
+    hostname: discovery
+  server:
+    enable-self-preservation: true
+    eviction-interval-timer-in-ms: 1000
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://discovery:${server.port}/eureka/
